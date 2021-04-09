@@ -1,0 +1,40 @@
+// Position background image perfectly at the center
+@mixin position-background-image {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+// Display flex, justify content space between
+// Align items center, flex direction row
+@mixin display-flex-sb-c-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+// Display flex, justify content center
+// Align items center, flex direction row
+@mixin display-flex-c-c-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+// Display flex, justify content space evenly
+// Align items center, flex direction row
+@mixin display-flex-se-c-row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+
+// Display flex, justify content center
+// Align items center, flex direction row
+@mixin display-flex-c-c-column-wrap {
+    @include display-flex-se-c-row;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,66 @@
+@import './common/theme_colors';
+@import './common/common_mixin';
+
+.top-navigation {
+    grid-area: TopNavigation;
+    background-color: $base-color;
+    @include display-flex-sb-c-row;
+
+    ul {
+        padding: 10px;
+
+        li {
+            list-style: none;
+            font-weight: bold;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        &:nth-child(1) {
+            span {
+                color: $button-color;
+            }
+        }
+
+        &:nth-child(2) {
+            @include display-flex-sb-c-row;
+            width: 250px;
+
+            li {
+                color: white;
+
+                a {
+                    @include display-flex-sb-c-row;
+                    width: 80px;
+
+                    span:last-of-type {
+                        @include position-background-image;
+                        display: block;
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+
+                // Add image to the login link
+                &:nth-child(1) {
+                    a {
+                        span:last-of-type {
+                            background-image: url('../icons/person_off_white.svg');
+                        }
+                    }
+                }
+
+                // Add image to the cart link
+                &:nth-child(2) {
+                    a {
+                        span:last-of-type {
+                            background-image: url('../icons/shopping_cart_white.svg');
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,183 @@
+@import './common/common_mixin';
+@import './common/theme_colors';
+
+.product-list {
+    grid-area: Products;
+    @include display-flex-c-c-column-wrap;
+
+    &>.product-list-card {
+        height: 400px;
+        width: fit-content;
+        border: 1px solid black;
+        border-radius: 5px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 5px 5px $soft-shadow;
+        background-color: $softer-shadow;
+
+        &>div {
+            position: relative;
+
+            // Div holding the image
+            &:first-of-type {
+                position: relative;
+                height: 200px;
+                width: fit-content;
+                overflow: hidden;
+
+                img {
+                    height: 100%;
+                }
+
+                // The Aquire Button
+                // The triangle
+                &>div {
+                    &:first-of-type {
+                        position: absolute;
+                        bottom: -150px;
+                        right: 0;
+                        width: 0;
+                        height: 0;
+                        border-bottom: 150px solid $button-color;
+                        border-left: 300px solid transparent;
+                        transition: bottom 0.2s ease-in-out;
+                    }
+
+                    &+div {
+                        position: absolute;
+                        bottom: -150px;
+                        right: 0;
+                        height: 75px;
+                        width: 150px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        transition: bottom 0.4s ease-in-out;
+
+                        span {
+                            color: white;
+                            font-weight: bold;
+                            font-size: x-large;
+
+                            &:last-of-type {
+                                @include position-background-image;
+                                background-image: url('../icons/east_white.svg');
+                                display: block;
+                                width: 30px;
+                                height: 30px;
+                                margin-left: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(2) {
+                @include display-flex-sb-c-row;
+                padding: 5px;
+                border-bottom: 1px solid $background-color;
+
+                &>div {
+                    &:first-of-type {
+                        @include display-flex-sb-c-row;
+                        width: 130px;
+                    }
+
+                    &:last-of-type {
+                        @include position-background-image;
+                        background-image: url('../icons/add_shopping_cart_black.svg');
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+
+            &:nth-child(3) {
+                max-height: 60px;
+                padding: 5px;
+                border-bottom: 1px solid $background-color;
+            }
+
+            &:nth-child(4) {
+                @include display-flex-sb-c-row;
+                padding: 5px;
+                font-style: italic;
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            &>div {
+                position: relative;
+
+                // Div holding the image
+                &:first-of-type {
+                    position: relative;
+                    height: 200px;
+                    width: fit-content;
+
+                    img {
+                        height: 100%;
+                    }
+
+                    // The Aquire Button
+                    &>div {
+                        &:first-of-type {
+                            position: absolute;
+                            bottom: 0;
+                            right: 0;
+                            width: 0;
+                            height: 0;
+                            border-bottom: 150px solid $button-color;
+                            border-left: 300px solid transparent;
+                        }
+
+
+                        &+div {
+                            position: absolute;
+                            bottom: 0;
+                            right: 0;
+                            height: 75px;
+                            width: 150px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            span {
+                                color: white;
+                                font-weight: bold;
+                                font-size: x-large;
+
+                                &:last-of-type {
+                                    @include position-background-image;
+                                    background-image: url('../icons/east_white.svg');
+                                    display: block;
+                                    width: 30px;
+                                    height: 30px;
+                                    margin-left: 10px;
+                                    animation: AquirePointer 0.8s linear 0s infinite;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+@keyframes AquirePointer {
+    0% {
+        margin-left: 20px;
+    }
+
+    50% {
+        margin-left: 30px;
+    }
+
+    100% {
+        margin-left: 70px;
+    }
+}
