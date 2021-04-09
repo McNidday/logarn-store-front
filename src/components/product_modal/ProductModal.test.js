@@ -1,14 +1,13 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import TopNavigation from './TopNavigation'
+import { shallow, mount } from 'enzyme'
 // These are component helper functions
 import { FindByTestAttribute } from '../component_helpers/helpers'
 
-describe('Top Navigation Component', () => {
+describe('Product Modal', () => {
     // Store the shallow component in var before each test
-    let shallowComponent
+    let shallowComponent, mountComponent
     beforeEach(() => {
-        shallowComponent = shallow(<TopNavigation></TopNavigation>)
+        shallowComponent = shallow(<ProductCardList></ProductCardList>)
     })
 
     // Make sure the component renders perfectly  

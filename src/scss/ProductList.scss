@@ -6,6 +6,7 @@
     @include display-flex-c-c-column-wrap;
 
     &>.product-list-card {
+        margin: 15px;
         height: 400px;
         width: fit-content;
         border: 1px solid black;

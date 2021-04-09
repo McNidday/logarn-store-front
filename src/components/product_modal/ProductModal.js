@@ -2,10 +2,16 @@ import React from 'react'
 import imagePlaceHolder from '../../pictures/whiteshoe.jpg'
 import paypalImage from '../../pictures/paypal-button.png'
 import '../../css/ProductModal.css'
+import { connect } from 'react-redux'
+import { closeModal } from '../../redux/modal/ModalActions'
 
-function ProductModal() {
+function ProductModal(props) {
+    function toggleCloseModal() {
+        props.closeModal()
+    }
+
     return (
-        <div className="product-modal">
+        <div className={props.active ? "product-modal" : "product-modal not_showing"} data-test={props.active ? "showing" : "not_showing"}>
             <div className="backdrop"></div>
             <div className="modal">
                 <div>
@@ -23,10 +29,22 @@ function ProductModal() {
                         <div><img src={paypalImage} /></div>
                     </div>
                 </div>
-                <div className='close-modal'></div>
+                <div className='close-modal' onClick={toggleCloseModal}></div>
             </div>
         </div>
     )
 }
 
-export default ProductModal
+const mapStateToProps = state => {
+    return {
+        active: state.modal.active
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        closeModal: () => dispatch(closeModal())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductModal)

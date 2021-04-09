@@ -4,17 +4,21 @@ import './css/Layout.css'
 import '../node_modules/normalize.css/normalize.css'
 import ProductCardList from "./components/product_card/ProductCardList"
 import ProductModal from "./components/product_modal/ProductModal"
+import store from './redux/store'
+import { Provider } from 'react-redux'
 
 // import logo from './logo.svg';
 
 function App() {
   return (
-    <div className="App">
-      <TopNavigation></TopNavigation>
-      <FeaturedSlider></FeaturedSlider>
-      <ProductCardList></ProductCardList>
-      <ProductModal></ProductModal>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <TopNavigation></TopNavigation>
+        <FeaturedSlider></FeaturedSlider>
+        <ProductCardList></ProductCardList>
+        <ProductModal></ProductModal>
+      </div>
+    </Provider>
   );
 }
 
