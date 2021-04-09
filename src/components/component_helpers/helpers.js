@@ -7,12 +7,3 @@
 export function FindByTestAttribute(component, attr) {
     return component.find(`[data-test="${attr}"]`)
 }
-
-/**
- * Returns a component populated with the props
- * @param {Object} props The properties to pass to the component
- * @param {JSX.Element} component The component to populate with properties
- */
-export function GetComponentWithProps(component, props) {
-    return component.props = props
-}

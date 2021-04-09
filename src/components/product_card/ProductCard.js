@@ -11,7 +11,7 @@ function ProductCard(props) {
     }
 
     return (
-        <div className="product-list-card">
+        <div className="product-list-card" data-test="ProductCard">
             <div><img src={imagePlaceHolder} />
                 <div></div>
                 <div onClick={toggleShowModal}>
