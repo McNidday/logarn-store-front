@@ -28,16 +28,13 @@ export function getProducts() {
                 }
               }`
         }
-        axios({
-            url: 'http://localhost:8080/graphql',
-            method: 'POST',
-            data: query
-        }).then(response => {
-            const products = response.data.data.getProducts
-            dispatch(successLoadingProducts(products))
-        }).catch(error => {
-            dispatch(errorLoadingProducts(error.response.data))
-        })
+        axios.post('http://localhost:8080/graphql', query)
+            .then(response => {
+                const products = response.data.data.getProducts
+                dispatch(successLoadingProducts(products))
+            }).catch(error => {
+                dispatch(errorLoadingProducts(error.response.data))
+            })
     }
 }
 
@@ -70,15 +67,12 @@ export function getFeaturedProduct() {
               }`
         }
 
-        axios({
-            url: 'http://localhost:8080/graphql',
-            method: 'POST',
-            data: query
-        }).then(response => {
-            const product = response.data.data.getFeaturedProduct
-            dispatch(successLoadingFeaturedProduct(product))
-        }).catch(error => {
-            dispatch(errorLoadingFeaturedProduct(error.response.data))
-        })
+        axios.post('http://localhost:8080/graphql', query)
+            .then(response => {
+                const product = response.data.data.getFeaturedProduct
+                dispatch(successLoadingFeaturedProduct(product))
+            }).catch(error => {
+                dispatch(errorLoadingFeaturedProduct(error.response.data))
+            })
     }
 }
